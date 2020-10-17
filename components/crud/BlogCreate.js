@@ -49,7 +49,7 @@ const CreateBlog = ({router}) => {
 
   const initCatagories = () => {
       getCatagories().then(data => {
-        if (data.error) {
+        if (!data || data.error ) {
           setValues({...values, error: data.error})
         } else {
           setCatagories(data)
@@ -59,7 +59,7 @@ const CreateBlog = ({router}) => {
 
   const initTags = () => {
     getTags().then(data => {
-      if (data.error) {
+      if (!data || data.error) {
         setValues({...values, error: data.error})
       } else {
         setTags(data)
@@ -72,7 +72,7 @@ const CreateBlog = ({router}) => {
       e.preventDefault()
       //console.log('ready to publish', e.target)
       createBlog(formData, token).then(data => {
-        if (data.error) {
+        if (!data || data.error) {
           setValues({...values, error: data.error})
         } else {
           setValues({...values, title: '', error: '', success: `A new blog titled "${data.title}" is created ` })

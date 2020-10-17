@@ -18,3 +18,8 @@
 a{
   cursor: pointer;
 }
+
+#searchedBlogs{
+  margin-top: -120px;
+  margin-bottom: -88px;
+}

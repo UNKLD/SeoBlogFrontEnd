@@ -4,6 +4,7 @@ import { APP_NAME } from '../config'
 import { signout, isAuth } from '../actions/auth'
 import Router from 'next/router';
 import NProgress from 'nprogress'
+import Search from './blog/Search';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 
 Router.onRouteChangeStart = url => NProgress.start()
@@ -16,7 +17,7 @@ const Header = () => {
     const toggle = () => setIsOpen(!isOpen);
 
  return (
-   <div>
+   <>
      <Navbar color="light" light expand="md">
        <Link href="/">
          <NavLink className="navbar-brand active">{APP_NAME}</NavLink>
@@ -68,10 +69,16 @@ const Header = () => {
                <NavLink style={{cursor:'pointer'}} onClick={() => signout(() => Router.replace('/signin'))}> Signout </NavLink>
              </NavItem>
            )}
+           <NavItem>
+             <Link href="/user/crud/blog">
+               <NavLink className="btn btn-primary"> Write a blog </NavLink>
+             </Link>
+           </NavItem>
          </Nav>
        </Collapse>
      </Navbar>
-   </div>
+     <Search />
+   </>
     );
 }
 export default Header;

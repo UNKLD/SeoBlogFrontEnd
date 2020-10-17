@@ -23,7 +23,7 @@ const Catagory = () => {
 
     const loadCatagories = () =>{
       getCatagories().then(data => {
-        if (data.error) {
+        if (!data || data.error) {
           console.log(data.error)
         } else {
           setValues({...values, catagories: data})
@@ -51,7 +51,7 @@ const Catagory = () => {
     const deleteCatagory = (slug) => {
         //console.log('delete', slug);
         removeCatagory(slug, token).then(data => {
-          if(data.error){
+          if(!data || data.error){
             console.log(data.error)
           } else {
             setValues({...values, error: false, success: false, name: '', removed: !removed, reload: !reload})
@@ -63,7 +63,7 @@ const Catagory = () => {
         e.preventDefault()
         //console.log('Create catagory', name)
         create({name}, token).then(data => {
-          if(data.error){
+          if(!data || data.error){
           setValues({...values, error: data.error, success: false})
         } else {
           setValues({...values, error: false, success: true, name:'', removed: '', reload: !reload})

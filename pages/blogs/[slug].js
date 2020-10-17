@@ -32,7 +32,7 @@ const SingleBlog = ({ blog }) => {
 
   useEffect(() => {
       loadRelated()
-  }, [related])
+  }, [blog])
 
   const loadRelated = () => {
       listRelated({blog}).then(data => {
@@ -55,7 +55,7 @@ const SingleBlog = ({ blog }) => {
 
   const showBlogTags = (blog) => {
     return  blog.tags.map((t, i) => (
-        <Link key={i} href={`/categories/${t.slug}`}>
+        <Link key={i} href={`/tags/${t.slug}`}>
           <a className="btn btn-outline-primary mr-1 ml-1 mt-3">{t.name}</a>
         </Link>
       ))
@@ -91,7 +91,10 @@ const SingleBlog = ({ blog }) => {
                 <div className="container">
                   <h1 className="display -2 pb-3 pt-3 text-center font-weight-bold">{blog.title}</h1>
                   <p className="lead mt-3 mark">
-                    Written by {blog.postedBy.name}  |  Published {moment(blog.updatedAt).fromNow()}
+                    Written by <Link
+                      href={`/profile/${blog.postedBy.username}`}>
+                      <a>{blog.postedBy.username}</a>
+                    </Link>  |  Published {moment(blog.updatedAt).fromNow()}
                   </p>
 
                   <div className="pt-3">

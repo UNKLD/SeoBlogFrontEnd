@@ -15,22 +15,16 @@ const Blogs = ({ blogs, catagories, tags, totalBlogs, blogsLimit, blogsSkip, rou
         <title>Anime related blogs | {APP_NAME}</title>
         <link rel="canonical" href={`${DOMAIN}${router.pathname}`} />
 
-        <meta
-          name="description"
-          content="Just another Anime blog site"
-        />
+        <meta name="description"  content="Just another Anime blog site"  />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property = "og:title" content={`Dope Anime blogs | ${APP_NAME}`} />
-        <meta
-          property="og:description"
-          content="Anime blogs built just for fun"
-        />
+        <meta property="og:description" content="Anime blogs built just for fun" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${DOMAIN}${router.pathname}`} />
         <meta property="og:site_name" content={`${APP_NAME}`} />
 
-        <meta property="og:image" content="/images/animeblog.jpg" />
-        <meta property="og:image:secure_url" content="/public/images/animeblog.jpg" />
+        <meta property="og:image" content={`${DOMAIN}/images/animeblog.jpg`} />
+        <meta property="og:image:secure_url" content={`${DOMAIN}/images/animeblog.jpg`} />
         <meta property="og:image:type" content="image/jpg" />
 
       </Head>
@@ -80,7 +74,7 @@ const Blogs = ({ blogs, catagories, tags, totalBlogs, blogsLimit, blogsSkip, rou
 
   const showAllCategories = () => {
       return catagories.map((c, i) => (
-        <Link href={`/catagories/${c.slug}`} key={i} >
+        <Link href={`/categories/${c.slug}`} key={i} >
           <a className="btn btn-primary mr-1 ml-1 mt-3">{c.name}</a>
         </Link>
       ))

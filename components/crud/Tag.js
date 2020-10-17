@@ -23,7 +23,7 @@ const Tag = () => {
 
     const loadTags = () =>{
       getTags().then(data => {
-        if (data.error) {
+        if (!data || data.error) {
           console.log(data.error)
         } else {
           setValues({...values, tags: data})
@@ -48,7 +48,7 @@ const Tag = () => {
     const deleteTag = (slug) => {
         //console.log('delete', slug);
         removeTag(slug, token).then(data => {
-          if(data.error){
+          if(!data || data.error){
             console.log(data.error)
           } else {
             setValues({...values, error: false, success: false, name: '', removed: !removed, reload: !reload})
@@ -60,7 +60,7 @@ const Tag = () => {
         e.preventDefault()
         //console.log('Create catagory', name)
         create({name}, token).then(data => {
-          if(data.error){
+          if(!data || data.error){
           setValues({...values, error: data.error, success: false})
         } else {
           setValues({...values, error: false, success: true, name:'', removed: '', reload: !reload})

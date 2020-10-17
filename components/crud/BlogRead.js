@@ -5,7 +5,7 @@ import {isAuth, getCookie} from '../../actions/auth'
 import { list, removeBlog } from '../../actions/blog'
 import moment from 'moment'
 
-const BloagRead = () => {
+const BloagRead = ({username}) => {
 
   const [blogs, setBlogs] = useState([])
   const [message, setMessage] = useState('')
@@ -16,8 +16,8 @@ const BloagRead = () => {
   }, [])
 
   const loadBlogs = () => {
-      list().then(data => {
-        if (data.error) {
+      list(username).then(data => {
+        if (!data || data.error) {
           console.log(data.error)
         } else {
           setBlogs(data)
@@ -29,7 +29,7 @@ const BloagRead = () => {
       let answer = window.confirm('Are You sure you wnat to delete your blog?')
       if (answer) {
         removeBlog(slug, token).then(data => {
-          if (data.error) {
+          if (!data || data.error) {
             console.log(data.error)
           } else {
             setMessage(data.message)
@@ -42,14 +42,11 @@ const BloagRead = () => {
 const showUpdateButton = (blog) => {
     if (isAuth() && isAuth().role === 0) {
       return (
-        <Link href={`/user/crud/blog/${blog.slug}`}>
-          <a className= "btn btn-sm btn-warning">Update</a>
-        </Link>
+          <a href={`/user/crud/${blog.slug}`} className= "btn btn-sm btn-warning ml-2">Update</a>
       )
     } else if(isAuth() && isAuth().role === 1) {
-      return <Link href={`/admin/crud/${blog.slug}`}>
-        <a className= "ml-2 btn btn-sm btn-warning">Update</a>
-      </Link>
+      return <a href={`/admin/crud/${blog.slug}`} className= "ml-2 btn btn-sm btn-warning">Update</a>
+
     }
 }
 

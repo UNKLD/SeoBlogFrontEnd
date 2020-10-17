@@ -39,7 +39,7 @@ const BlogUpdate = ({router}) => {
   const initBlog = () => {
     if(router.query.slug){
   singleBlog(router.query.slug).then(data => {
-    if (data.error) {
+    if (!data || data.error) {
       console.log(data.error)
     } else {
       setValues({...values, title: data.title})
@@ -53,7 +53,7 @@ const BlogUpdate = ({router}) => {
 
 const initCatagories = () => {
     getCatagories().then(data => {
-      if (data.error) {
+      if (!data || data.error) {
         setValues({...values, error: data.error})
       } else {
         setCatagories(data)
@@ -63,7 +63,7 @@ const initCatagories = () => {
 
 const initTags = () => {
   getTags().then(data => {
-    if (data.error) {
+    if (!data || data.error) {
       setValues({...values, error: data.error})
     } else {
       setTags(data)
@@ -109,13 +109,13 @@ const editBlog = (e) => {
   e.preventDefault()
     //console.log('update blog', e)
     updateBlog(formData, token, router.query.slug).then(data => {
-      if (data.error) {
+      if (!data || data.error) {
         setValues({...values, error: data.error})
       } else {
         if (isAuth() && isAuth().role === 1) {
-          Router.push('/admin/crud/blogs')
+          router.push('/admin/crud/blogs')
         } else if(isAuth() && isAuth().role === 0){
-          Router.push('/user/crud/blogs')
+          Router.replace('/user/crud/blogs')
         }
       }
     })
@@ -239,7 +239,7 @@ const updateBlogForm = () => {
           <div className="col-md-8">
             {updateBlogForm()}
 
-            <div className="pb-3 col-md-8">
+            <div className="pt-3 pb-3 col-md-8">
               {showError()}
             </div>
             {body && (
