@@ -37,7 +37,6 @@ const ProfileUpdate = () => {
         setValues({...values,
           username: data.username,
           name: data.name,
-          email: data.email ,
           about: data.about,
           photoName: data.username
         })
@@ -62,7 +61,6 @@ const handleSubmit = (e) => {
           setValues({...values,
             username: data.username,
             name: data.name,
-            email: data.email ,
             about: data.about,
             success: true,
             loading: false
@@ -103,17 +101,6 @@ const handleSubmit = (e) => {
           type="text"
           onChange={handleChange('name')}
           value={name}
-          required
-          className="form-control"
-        />
-      </div>
-
-      <div className="form-group">
-        <label className="text-muted">Email </label>
-        <input
-          type="email"
-          onChange={handleChange('email')}
-          value={email}
           required
           className="form-control"
         />

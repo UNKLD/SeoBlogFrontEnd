@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../../components/Layout'
 import SmallCard from '../../components/blog/SmallCard'
+import ContactForm from '../../components/form/ContactForm';
 import { userPublicProfile } from '../../actions/user'
 import { API, DOMAIN, APP_NAME } from '../../config'
 import moment from 'moment';
@@ -84,10 +85,10 @@ const UserProfile = ({ user, blogs }) => {
                 <div className="card">
                   <div className="card-body">
                     <h5 className="card-title bg-primary pt-4 pb-4 pl-4 pr-4 text-white">
-                      Message {user.name}
+                      Contact {user.name}
                     </h5>
                     <br/>
-                    <p>Contact Form</p>
+                    <ContactForm authorEmail={user.email} />
                   </div>
                 </div>
               </div>

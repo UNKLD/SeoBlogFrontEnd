@@ -74,7 +74,7 @@ const Tag = () => {
 
     const showSucces = () => {
         if(success) {
-          return <p className="text-succes">Tag Created</p>
+          return <p className="text-success">Tag Created</p>
         }
     }
 

@@ -17,7 +17,7 @@ const Search = () => {
       e.preventDefault()
       listSearch({search}).then(data => {
         setValues({...values, results: data, searched: true, message: `${data.length} blogs found`})
-        console.log(message)
+        //console.log(message)
       })
   }
   const handleChange = (e) => {

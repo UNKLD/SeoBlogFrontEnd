@@ -45,7 +45,7 @@ const Category = ({catagory, blogs}) => {
                       <Card key={i} blog={b} />
                       <hr/>
                     </div>
-                  ) )}
+                  ))}
                 </div>
               </header>
             </div>

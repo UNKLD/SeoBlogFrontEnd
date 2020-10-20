@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { signin, authenticate, isAuth } from '../../actions/auth'
 import Router from 'next/router';
+import Link from 'next/link';
 
 function SigninComponent() {
 
@@ -49,7 +50,7 @@ function SigninComponent() {
     const showError = () => (error ? <div className="alert alert-danger">{error}</div> : '')
     const showMessage = () => (message ? <div className="alert alert-info">{message}</div> : '')
 
-    const signUpForm = () => {
+    const signInForm = () => {
         return (
             <form onSubmit={handleSubmit} >
                 <div className="form-group">
@@ -78,10 +79,14 @@ function SigninComponent() {
     }
     return (
         <>
-            {showError()}
-            {showLoading()}
-            {showMessage()}
-            {showForm && signUpForm()}
+          {showError()}
+          {showLoading()}
+          {showMessage()}
+          {showForm && signInForm()}
+          <br/>
+          <Link href='/auth/password/forgot'>
+            <a className="btn btn-outline-danger btn-sm">Forgot password</a>
+          </Link>
         </>
     )
 }

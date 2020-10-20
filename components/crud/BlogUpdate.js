@@ -165,7 +165,7 @@ const handleToggle = id => () => {
     } else {
       all.splice(clickedCatagory, 1)
     }
-    console.log(all)
+    //console.log(all)
     setChecked(all)
     formData.set('catagories', all)
 }
@@ -180,7 +180,7 @@ const handleTagsToggle = id => () => {
     } else {
       all.splice(clickedTag, 1)
     }
-    console.log(all)
+    //console.log(all)
     setCheckedTag(all)
     formData.set('tags', all)
 }

@@ -45,7 +45,7 @@ const Tag = ({tag, blogs}) => {
                       <Card key={i} blog={b} />
                       <hr/>
                     </div>
-                  ) )}
+                  ))}
                 </div>
               </header>
             </div>

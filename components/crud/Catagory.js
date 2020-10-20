@@ -34,9 +34,11 @@ const Catagory = () => {
     const showCatagories = () => {
       return catagories.map((c, i) => {
         return <button
-          onDoubleClick={() => deleteConfirm(c.slug)} title="Double Click To Delete"
           key={i}
-               className="btn btn-outline-primary mr-1 ml-1 mt-3">
+          title="Double Click To Delete"
+          className="btn btn-outline-primary mr-1 ml-1 mt-3"
+          onDoubleClick={() => deleteConfirm(c.slug)}
+                >
           {c.name}
         </button>
       })
@@ -77,7 +79,7 @@ const Catagory = () => {
 
     const showSucces = () => {
         if(success) {
-          return <p className="text-succes">Catagory Created</p>
+          return <p className="text-success">Catagory Created</p>
         }
     }
 
@@ -92,7 +94,7 @@ const Catagory = () => {
           return <p className="text-danger">Catagory Removed</p>
         }
     }
-    const mouseMoveHandler = e => {
+    const mouseMoveHandler = () => {
         setValues({...values, error: false, success: false, removed: ''})
      }
 

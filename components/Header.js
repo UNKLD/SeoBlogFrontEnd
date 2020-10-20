@@ -48,31 +48,41 @@ const Header = () => {
              </>
            }
 
-           {isAuth() && isAuth().role === 0 && (
+           {isAuth() && isAuth().role === 0 &&
              <NavItem>
                <Link href='/user'>
                  <NavLink>{`${isAuth().name}'s Dashboard`}</NavLink>
                </Link>
              </NavItem>
-           )}
+           }
 
-           {isAuth() && isAuth().role === 1 && (
+           {isAuth() && isAuth().role === 1 &&
              <NavItem>
                <Link href='/admin'>
                  <NavLink>{`${isAuth().name}'s Dashboard`}</NavLink>
                </Link>
              </NavItem>
-           )}
+           }
 
-           {isAuth() && (
+           {isAuth() &&
              <NavItem>
                <NavLink style={{cursor:'pointer'}} onClick={() => signout(() => Router.replace('/signin'))}> Signout </NavLink>
              </NavItem>
-           )}
+           }
+
            <NavItem>
-             <Link href="/user/crud/blog">
-               <NavLink className="btn btn-primary"> Write a blog </NavLink>
+             <Link href="/contact">
+               <NavLink>Contact</NavLink>
              </Link>
+           </NavItem>
+
+           <NavItem>
+             {isAuth() && <Link href="/user/crud/blog">
+               <NavLink className="btn btn-primary"> Write a blog </NavLink>
+             </Link>}
+             {!isAuth() && <Link href="/signup">
+               <NavLink className="btn btn-primary"> Write a blog </NavLink>
+             </Link>}
            </NavItem>
          </Nav>
        </Collapse>

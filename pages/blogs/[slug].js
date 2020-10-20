@@ -7,6 +7,7 @@ import { singleBlog, listRelated } from '../../actions/blog'
 import { API, DOMAIN, APP_NAME } from '../../config'
 import renderHtml from 'react-render-html';
 import moment from 'moment';
+import DisqusTread from '../../components/DisqusTread';
 
 const SingleBlog = ({ blog }) => {
 
@@ -71,6 +72,12 @@ const SingleBlog = ({ blog }) => {
       ))
   }
 
+  const showComments = () => {
+      return (
+          <DisqusTread post={blog} />
+      )
+  }
+
 
     return <>
       {head()}
@@ -121,9 +128,10 @@ const SingleBlog = ({ blog }) => {
             </div>
 
             <div className="container pb-5">
-              <p>Show comments</p>
+              {showComments()}
             </div>
           </article>
+
         </main>
       </Layout>
     </>
