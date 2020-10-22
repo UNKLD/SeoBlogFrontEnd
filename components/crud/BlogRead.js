@@ -5,7 +5,7 @@ import {isAuth, getCookie} from '../../actions/auth'
 import { list, removeBlog } from '../../actions/blog'
 import moment from 'moment'
 
-const BloagRead = ({username}) => {
+const BlogRead = ({username}) => {
 
   const [blogs, setBlogs] = useState([])
   const [message, setMessage] = useState('')
@@ -81,4 +81,4 @@ const showUpdateButton = (blog) => {
     )
 }
 
-export default BloagRead
+export default BlogRead

@@ -138,7 +138,7 @@ const showError = () => {
 
 const showSuccess = () => {
     return <div className="alert alert-success" style={{display: success ? ' ' : 'none'}}>
-      Profile Updated Please Refresh to see image
+      Profile Updated Please Refresh page to see your image
     </div>
 }
 

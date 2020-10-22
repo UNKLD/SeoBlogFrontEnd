@@ -50,6 +50,7 @@ const Catagory = () => {
         deleteCatagory(slug)
       }
     }
+    
     const deleteCatagory = (slug) => {
         //console.log('delete', slug);
         removeCatagory(slug, token).then(data => {

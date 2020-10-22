@@ -5,7 +5,7 @@ import BlogCreate from '../../../components/crud/BlogCreate'
 const Blog = () => {
   return (
     <Layout>
-      <private>
+      <Private>
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12 pt-5 pb-5">
@@ -16,7 +16,7 @@ const Blog = () => {
             </div>
           </div>
         </div>
-      </private>
+      </Private>
     </Layout>
 )
 }

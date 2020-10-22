@@ -64,17 +64,17 @@ const Header = () => {
              </NavItem>
            }
 
-           {isAuth() &&
-             <NavItem>
-               <NavLink style={{cursor:'pointer'}} onClick={() => signout(() => Router.replace('/signin'))}> Signout </NavLink>
-             </NavItem>
-           }
-
            <NavItem>
              <Link href="/contact">
                <NavLink>Contact</NavLink>
              </Link>
            </NavItem>
+
+           {isAuth() &&
+             <NavItem>
+               <NavLink style={{cursor:'pointer'}} onClick={() => signout(() => Router.replace('/signin'))}> Signout </NavLink>
+             </NavItem>
+           }
 
            <NavItem>
              {isAuth() && <Link href="/user/crud/blog">
