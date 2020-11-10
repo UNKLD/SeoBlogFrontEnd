@@ -1,12 +1,12 @@
-import Header from './Header'
+import Header from './Header';
 
-const Layout = ({children}) => {
-    return (
-        <>
-            <Header />
-                {children}
-        </>
-    )
-}
+const Layout = ({ children }) => {
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
+};
 
-export default Layout
+export default Layout;

@@ -1,13 +1,13 @@
-import {useEffect} from 'react'
-import Router from 'next/router'
-import { isAuth } from '../../actions/auth'
+import { useEffect } from 'react';
+import Router from 'next/router';
+import { isAuth } from '../../actions/auth';
 
-const Private = ({children}) => {
+const Private = ({ children }) => {
   useEffect(() => {
-      if(!isAuth()) {
-          Router.push('/signin')
-      }
-  }, [])
+    if (!isAuth()) {
+      Router.push('/signin');
+    }
+  }, []);
   return <>{children}</>;
-}
-export default Private
+};
+export default Private;

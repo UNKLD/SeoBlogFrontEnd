@@ -1,13 +1,13 @@
-*{
+* {
   box-sizing: border-box;
 }
 
-#nprogress .bar{
+#nprogress .bar {
   height: 3.5px !important;
 }
 
 .ql-editor {
-  min-height: 250px
+  min-height: 250px;
 }
 .featured-image {
   width: 100%;
@@ -15,20 +15,21 @@
   object-fit: fill;
 }
 
-a{
+a {
   cursor: pointer;
 }
 
-#searchedBlogs{
+#searchedBlogs {
   margin-top: -120px;
   margin-bottom: -88px;
 }
 
-.card-container{
+.card-container {
   display: grid;
   perspective: 700px;
 }
-.card-flip, .card-container {
+.card-flip,
+.card-container {
   transform-style: preserve-3d;
   transition: all 0.7s ease;
 }
@@ -46,7 +47,7 @@ a{
 .card-flip {
   display: grid;
   grid-template: 14fr / 14fr;
-  grid-template-areas: "frontAndBack";
+  grid-template-areas: 'frontAndBack';
   transform-style: preserve-3d;
   transition: all 0.7s ease;
 }
