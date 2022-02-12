@@ -1,4 +1,4 @@
-## SeoBlogFrontEnd
+## Seo Freindly Multi user blog app
 
 This is the front-end part of a Multi-user blog website made with Node.js,Next.js and Bootstrap.
 
