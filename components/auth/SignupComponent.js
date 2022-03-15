@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { preSignup, isAuth } from '../../actions/auth';
 import Router from 'next/router';
+import Link from 'next/link';
 
 function SignupComponent() {
   const [values, setValues] = useState({
@@ -11,9 +12,10 @@ function SignupComponent() {
     loading: false,
     message: '',
     showForm: true,
+    token: ''
   });
 
-  const { name, email, password, error, loading, message, showForm } = values;
+  const { name, email, password, error, loading, message, showForm, token } = values;
   useEffect(() => {
     isAuth() && Router.push('/');
   }, []);
@@ -35,6 +37,7 @@ function SignupComponent() {
           loading: false,
           message: data.message,
           showForm: false,
+          token: data.token
         });
       }
     });
@@ -48,7 +51,13 @@ function SignupComponent() {
   const showError = () =>
     error ? <div className='alert alert-danger'>{error}</div> : '';
   const showMessage = () =>
-    message ? <div className='alert alert-info'>{message}</div> : '';
+    message ?
+    <div className='alert alert-info'>
+    {message}<br />
+    <Link href={`/auth/account/activate/${token}`}>
+    <a>Activate Account</a>
+    </Link>
+    </div> : '';
 
   const signUpForm = () => {
     return (

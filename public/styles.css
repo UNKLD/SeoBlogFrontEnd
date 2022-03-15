@@ -10,9 +10,11 @@
   min-height: 250px;
 }
 .featured-image {
-  width: 100%;
+  max-width: 750px;
   max-height: 660px;
   object-fit: fill;
+  margin: auto;
+  border-radius: 15px;
 }
 
 a {
@@ -47,7 +49,7 @@ a {
 .card-flip {
   display: grid;
   grid-template: 14fr / 14fr;
-  grid-template-areas: 'frontAndBack';
+  grid-template-areas: "frontAndBack";
   transform-style: preserve-3d;
   transition: all 0.7s ease;
 }
