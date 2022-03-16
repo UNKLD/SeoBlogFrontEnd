@@ -1,8 +1,12 @@
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import Private from "../../components/auth/Private";
+import BlogRead from "../../components/crud/BlogRead";
+import { isAuth } from "../../actions/auth";
 
 const UserIndex = () => {
+  const userName = isAuth() && isAuth().username;
+
   return (
     <Layout>
       <Private>
@@ -34,7 +38,9 @@ const UserIndex = () => {
               </ul>
             </div>
 
-            {/* <div className='col-md-8'>left</div> */}
+            <div className="col-md-8">
+              <BlogRead username={userName} />
+            </div>
           </div>
         </div>
       </Private>

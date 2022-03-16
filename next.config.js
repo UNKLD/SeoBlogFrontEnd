@@ -1,10 +1,10 @@
 module.exports = {
   publicRuntimeConfig: {
-    APP_NAME: 'ANIME BLOGS',
-    API_DEVELOPMENT: 'http://localhost:8000/api',
+    APP_NAME: "SEO BLOGS",
+    API_DEVELOPMENT: "https://unkld-seo-blog-backend.herokuapp.com/api",
     PRODUCTION: false,
-    DOMAIN_DEVELOPMENT: 'http://localhost:3000',
-    DOMAIN_PRODUCTION: 'https://anime-blogs.tk',
-    DISQUS_SHORTNAME: 'anime-seo-2',
+    DOMAIN_DEVELOPMENT: "http://localhost:3000",
+    DOMAIN_PRODUCTION: "https://anime-blogs.tk",
+    DISQUS_SHORTNAME: "anime-seo-2",
   },
 };

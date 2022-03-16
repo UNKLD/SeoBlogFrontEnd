@@ -2,8 +2,12 @@ import Layout from "../../components/Layout";
 import Admin from "../../components/auth/Admin";
 import Link from "next/link";
 import Head from "next/head";
+import BlogRead from "../../components/crud/BlogRead";
+import { isAuth } from "../../actions/auth";
 
 const AdminIndex = () => {
+  const userName = isAuth() && isAuth().username;
+
   return (
     <>
       <Head>
@@ -51,7 +55,9 @@ const AdminIndex = () => {
                 </ul>
               </div>
 
-              {/* <div className='col-md-8'>left</div> */}
+              <div className="col-md-8">
+                <BlogRead username={userName} />
+              </div>
             </div>
           </div>
         </Admin>

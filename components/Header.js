@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { APP_NAME } from "../config";
 import { signout, isAuth } from "../actions/auth";
@@ -13,7 +13,13 @@ Router.onRouteChangeError = (url) => NProgress.done();
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [auth, setAuth] = useState();
   const toggle = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    setAuth(isAuth());
+    return () => {};
+  }, []);
 
   return (
     <>
@@ -30,7 +36,7 @@ const Header = () => {
               </Link>
             </NavItem>
 
-            {!isAuth() && (
+            {!auth && (
               <>
                 <NavItem>
                   <Link href="/signin">
@@ -46,7 +52,7 @@ const Header = () => {
               </>
             )}
 
-            {isAuth() && isAuth().role === 0 && (
+            {auth && auth.role === 0 && (
               <NavItem>
                 <Link href="/user">
                   <NavLink>{`${isAuth().name}'s Dashboard`}</NavLink>
@@ -54,7 +60,7 @@ const Header = () => {
               </NavItem>
             )}
 
-            {isAuth() && isAuth().role === 1 && (
+            {auth && auth.role === 1 && (
               <NavItem>
                 <Link href="/admin">
                   <NavLink>{`${isAuth().name}'s Dashboard`}</NavLink>
@@ -68,25 +74,24 @@ const Header = () => {
               </Link>
             </NavItem>
 
-            {isAuth() && (
+            {auth && (
               <NavItem>
                 <NavLink
                   style={{ cursor: "pointer" }}
                   onClick={() => signout(() => Router.replace("/signin"))}
                 >
-                  {" "}
-                  Signout{" "}
+                  Signout
                 </NavLink>
               </NavItem>
             )}
 
             <NavItem>
-              {isAuth() && (
+              {auth && (
                 <Link href="/user/crud/blog">
                   <NavLink className="btn btn-primary"> Write a blog </NavLink>
                 </Link>
               )}
-              {!isAuth() && (
+              {!auth && (
                 <Link href="/signup">
                   <NavLink className="btn btn-primary"> Write a blog </NavLink>
                 </Link>
