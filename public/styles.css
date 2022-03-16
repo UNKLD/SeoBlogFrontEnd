@@ -29,6 +29,7 @@ a {
 .card-container {
   display: grid;
   perspective: 700px;
+  margin-top: 17px;
 }
 .card-flip,
 .card-container {
