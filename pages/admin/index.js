@@ -4,9 +4,17 @@ import Link from "next/link";
 import Head from "next/head";
 import BlogRead from "../../components/crud/BlogRead";
 import { isAuth } from "../../actions/auth";
+import { useEffect } from "react";
 
 const AdminIndex = () => {
   const userName = isAuth() && isAuth().username;
+
+  useEffect(() => {
+    if (!isAuth() || userName !== "admin") {
+      window.location.replace("/");
+    }
+    return () => {};
+  }, []);
 
   return (
     <>
