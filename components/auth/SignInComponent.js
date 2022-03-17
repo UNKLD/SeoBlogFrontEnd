@@ -5,9 +5,9 @@ import Link from 'next/link';
 
 function SigninComponent() {
   const [values, setValues] = useState({
-    name: 'newuser',
-    email: 'newuser@gmail.com',
-    password: 'password',
+    name: '',
+    email: '',
+    password: '',
     error: '',
     loading: false,
     message: '',
