@@ -38,7 +38,7 @@ const UserIndex = () => {
               </ul>
             </div>
 
-            <div className="col-md-8">
+            <div className="col-md-8 user-blogs">
               <BlogRead username={userName} />
             </div>
           </div>

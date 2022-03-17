@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import renderHtml from 'react-render-html';
-import { listSearch } from '../../actions/blog';
+import { useState } from "react";
+import Link from "next/link";
+import { listSearch } from "../../actions/blog";
 
 const Search = () => {
   const [values, setValues] = useState({
     search: undefined,
-    results: '',
+    results: "",
     searched: false,
-    message: '',
+    message: "",
   });
 
   const { search, results, searched, message } = values;
@@ -22,7 +21,6 @@ const Search = () => {
         searched: true,
         message: `${data.length} blogs found`,
       });
-      //console.log(message)
     });
   };
   const handleChange = (e) => {
@@ -36,14 +34,14 @@ const Search = () => {
 
   const searchedBlogs = (results = []) => {
     return (
-      <div className='jumbotron bg-white'>
-        {message && <p className='pt-4 text-muted font-italic'>{message}</p>}
+      <div className="jumbotron bg-white results">
+        {message && <p className="pt-4 text-muted font-italic">{message}</p>}
 
         {results.map((blog, i) => {
           return (
             <div key={i}>
               <Link href={`/blogs/${blog.slug}`}>
-                <a className='text-primary'>{blog.title}</a>
+                <a className="text-primary">{blog.title}</a>
               </Link>
             </div>
           );
@@ -54,26 +52,26 @@ const Search = () => {
 
   const searchForm = () => (
     <form onSubmit={searchSubmit}>
-      <div className='row'>
-        <div className='col-md-8'>
+      <div className="row">
+        <div className="col-md-8 s-input">
           <input
-            type='search'
-            className='form-control'
-            placeholder='Search Blogs'
+            type="search"
+            className="form-control"
+            placeholder="Search Blogs"
             onChange={handleChange}
           />
         </div>
-        <div className='col-md-4'>
-          <button className='btn btn-block btn-outline-primary'>Search</button>
+        <div className="col-md-4">
+          <button className="btn btn-block btn-outline-primary">Search</button>
         </div>
       </div>
     </form>
   );
 
   return (
-    <div className='container-fluid'>
-      <div className='pt-3 pb-5'>{searchForm()}</div>
-      {searched && <div id='searchedBlogs'>{searchedBlogs(results)}</div>}
+    <div className="container-fluid">
+      <div className="pt-3 pb-5">{searchForm()}</div>
+      {searched && <div id="searchedBlogs">{searchedBlogs(results)}</div>}
     </div>
   );
 };

@@ -21,7 +21,7 @@ const index = () => {
           </div>
         </div>
 
-        <div className="container-fluid">
+        <div className="container-fluid index">
           <div className="row">
             <div className="col-md-4 card-container">
               <div className="card-flip">

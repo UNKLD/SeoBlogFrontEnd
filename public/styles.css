@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.index {
+  overflow-y: hidden;
+}
+
 #nprogress .bar {
   height: 3.5px !important;
 }
@@ -29,6 +33,7 @@ a {
 .card-container {
   display: grid;
   perspective: 700px;
+  margin-top: 15px;
 }
 .card-flip,
 .card-container {
@@ -63,4 +68,34 @@ a {
 .back {
   grid-area: frontAndBack;
   transform: rotateY(-180deg);
+}
+
+footer {
+  margin: 0.5em auto 1.5em;
+  text-align: center;
+  font-size: large;
+  color: rgba(124, 124, 124, 0.799);
+}
+
+@media (max-width: 768px) {
+  .index {
+    margin-bottom: 20px;
+  }
+  .results {
+    top: 50px;
+    margin: 20px auto 50px;
+  }
+  .s-input {
+    margin-bottom: 10px;
+  }
+  .img {
+    max-width: 350px;
+  }
+  .user-blogs {
+    margin: 20px auto;
+  }
+  .front {
+    background-size: 100%;
+    background-repeat: round;
+  }
 }

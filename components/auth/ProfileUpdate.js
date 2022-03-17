@@ -1,36 +1,28 @@
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import Router from 'next/router';
-import { getCookie, isAuth, updateUser } from '../../actions/auth';
-import { API } from '../../config';
-import { getProfile, update } from '../../actions/user';
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import Router from "next/router";
+import { getCookie, isAuth, updateUser } from "../../actions/auth";
+import { API } from "../../config";
+import { getProfile, update } from "../../actions/user";
 
 const ProfileUpdate = () => {
-  const [userData, setUserData] = useState('');
+  const [userData, setUserData] = useState("");
   const [values, setValues] = useState({
-    username: '',
-    name: '',
-    email: '',
-    password: '',
-    about: '',
-    photoName: '',
+    username: "",
+    name: "",
+    email: "",
+    password: "",
+    about: "",
+    photoName: "",
     error: false,
     success: false,
     loading: false,
-    photo: '',
+    photo: "",
   });
 
-  const {
-    username,
-    name,
-    password,
-    about,
-    error,
-    success,
-    loading,
-    photoName,
-  } = values;
-  const token = getCookie('token');
+  const { username, name, password, about, error, success, loading, photoName } =
+    values;
+  const token = getCookie("token");
 
   useEffect(() => {
     setUserData(new FormData());
@@ -54,7 +46,7 @@ const ProfileUpdate = () => {
   };
 
   const handleChange = (name) => (e) => {
-    const value = name === 'photo' ? e.target.files[0] : e.target.value;
+    const value = name === "photo" ? e.target.files[0] : e.target.value;
     userData.set(name, value);
     setValues({
       ...values,
@@ -93,69 +85,67 @@ const ProfileUpdate = () => {
 
   const profileUpdateForm = () => (
     <form onSubmit={handleSubmit}>
-      <div className='form-group'>
-        <label className='btn btn-outline-info'>
+      <div className="form-group">
+        <label className="btn btn-outline-info">
           Profile Photo
           <input
-            type='file'
-            accept='image/*'
-            onChange={handleChange('photo')}
+            type="file"
+            accept="image/*"
+            onChange={handleChange("photo")}
             hidden
           />
         </label>
       </div>
 
-      <div className='form-group'>
-        <label className='text-muted'>Username </label>
+      <div className="form-group">
+        <label className="text-muted">Username </label>
         <input
-          type='text'
-          onChange={handleChange('username')}
+          type="text"
+          onChange={handleChange("username")}
           value={username}
           required
-          className='form-control'
+          className="form-control"
         />
       </div>
 
-      <div className='form-group'>
-        <label className='text-muted'>Name </label>
+      <div className="form-group">
+        <label className="text-muted">Name </label>
         <input
-          type='text'
-          onChange={handleChange('name')}
+          type="text"
+          onChange={handleChange("name")}
           value={name}
           required
-          className='form-control'
+          className="form-control"
         />
       </div>
 
-      <div className='form-group'>
-        <label className='text-muted'>About </label>
+      <div className="form-group">
+        <label className="text-muted">About </label>
         <textarea
-          type='text'
-          onChange={handleChange('about')}
+          type="text"
+          onChange={handleChange("about")}
           value={about}
-          className='form-control'
+          className="form-control"
         />
       </div>
 
-      <div className='form-group'>
-        <label className='text-muted'>Password </label>
+      <div className="form-group">
+        <label className="text-muted">Password </label>
         <input
-          type='password'
-          onChange={handleChange('password')}
+          type="password"
+          onChange={handleChange("password")}
           value={password}
-          className='form-control'
+          className="form-control"
         />
       </div>
 
-      <button className='btn btn-primary'>Update Profile</button>
+      <button className="btn btn-primary">Update Profile</button>
     </form>
   );
 
   const showError = () => {
     return (
-      <div
-        className='alert alert-danger'
-        style={{ display: error ? ' ' : 'none' }}>
+      <div className="alert alert-danger" style={{ display: error ? " " : "none" }}>
         {error}
       </div>
     );
@@ -164,8 +154,9 @@ const ProfileUpdate = () => {
   const showSuccess = () => {
     return (
       <div
-        className='alert alert-success'
-        style={{ display: success ? ' ' : 'none' }}>
+        className="alert alert-success"
+        style={{ display: success ? " " : "none" }}
+      >
         Profile Updated Please Refresh page to see your image
       </div>
     );
@@ -173,9 +164,7 @@ const ProfileUpdate = () => {
 
   const showLoading = () => {
     return (
-      <div
-        className='alert alert-info'
-        style={{ display: loading ? ' ' : 'none' }}>
+      <div className="alert alert-info" style={{ display: loading ? " " : "none" }}>
         Loading...
       </div>
     );
@@ -183,20 +172,20 @@ const ProfileUpdate = () => {
 
   return (
     <>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-md-4'>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
             {photoName && (
               <img
                 src={`${API}/user/photo/${photoName}`}
-                alt='user profile'
-                style={{ maxHeight: 'auto', maxWidth: '100%' }}
-                className='img img-thumbnail img-fluid mb-3'
+                alt="user profile"
+                style={{ maxHeight: "auto", maxWidth: "100%" }}
+                className="img img-thumbnail img-fluid mb-3"
               />
             )}
           </div>
 
-          <div className='col-md-8 mb-5'>
+          <div className="col-md-8 mb-5">
             {showError()}
             {showSuccess()}
             {showLoading()}
