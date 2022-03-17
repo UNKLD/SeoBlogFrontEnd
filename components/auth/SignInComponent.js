@@ -1,23 +1,23 @@
-import { useState, useEffect } from 'react';
-import { signin, authenticate, isAuth } from '../../actions/auth';
-import Router from 'next/router';
-import Link from 'next/link';
+import { useState, useEffect } from "react";
+import { signin, authenticate, isAuth } from "../../actions/auth";
+import Router from "next/router";
+import Link from "next/link";
 
 function SigninComponent() {
   const [values, setValues] = useState({
-    name: 'newuser',
-    email: 'newuser@gmail.com',
-    password: 'password',
-    error: '',
+    name: "",
+    email: "",
+    password: "",
+    error: "",
     loading: false,
-    message: '',
+    message: "",
     showForm: true,
   });
 
   const { email, password, error, loading, message, showForm } = values;
 
   useEffect(() => {
-    isAuth() && Router.push('/');
+    isAuth() && Router.push("/");
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,9 +33,9 @@ function SigninComponent() {
         //authonticate user
         authenticate(data, () => {
           if (isAuth() && isAuth().role === 1) {
-            Router.push('/admin');
+            Router.push("/admin");
           } else {
-            Router.push('/user');
+            Router.push("/user");
           }
         });
       }
@@ -46,35 +46,35 @@ function SigninComponent() {
     setValues({ ...values, error: false, [name]: e.target.value });
   };
   const showLoading = () =>
-    loading ? <div className='alert alert-info'>loading...</div> : '';
+    loading ? <div className="alert alert-info">loading...</div> : "";
   const showError = () =>
-    error ? <div className='alert alert-danger'>{error}</div> : '';
+    error ? <div className="alert alert-danger">{error}</div> : "";
   const showMessage = () =>
-    message ? <div className='alert alert-info'>{message}</div> : '';
+    message ? <div className="alert alert-info">{message}</div> : "";
 
   const signInForm = () => {
     return (
       <form onSubmit={handleSubmit}>
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='email'
+            type="email"
             value={email}
-            onChange={handleChange('email')}
-            className='form-control'
-            placeholder='Type your Email'
+            onChange={handleChange("email")}
+            className="form-control"
+            placeholder="Type your Email"
           />
         </div>
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='password'
+            type="password"
             value={password}
-            onChange={handleChange('password')}
-            className='form-control'
-            placeholder='Type your Password'
+            onChange={handleChange("password")}
+            className="form-control"
+            placeholder="Type your Password"
           />
         </div>
         <div>
-          <button className='btn btn-primary'>Signin</button>
+          <button className="btn btn-primary">Signin</button>
         </div>
       </form>
     );
@@ -86,8 +86,8 @@ function SigninComponent() {
       {showMessage()}
       {showForm && signInForm()}
       <br />
-      <Link href='/auth/password/forgot'>
-        <a className='btn btn-outline-danger btn-sm'>Forgot password</a>
+      <Link href="/auth/password/forgot">
+        <a className="btn btn-outline-danger btn-sm">Forgot password</a>
       </Link>
     </>
   );
