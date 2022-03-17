@@ -6,12 +6,11 @@ This is the front-end part of a Multi-user blog website made with Next.js and Bo
 
 ## Running locally in development mode
 
-To get started, just clone the repository and run `npm install && npm run dev`:
+To get started, just clone the repository and run:
 
     npm install
     npm run dev
 
-Note: If you are running on Windows run install --noptional flag (i.e. `npm install --no-optional`) which will skip installing fsevents.
 
 ## Building and deploying in production
 
