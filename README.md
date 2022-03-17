@@ -1,16 +1,8 @@
 ## Seo Freindly Multi user blog app
 
-This is the front-end part of a Multi-user blog website made with Node.js,Next.js and Bootstrap.
+This is the front-end part of a Multi-user blog website made with Next.js and Bootstrap.
 
-## About 
-
-Next.js is a framework that makes it easy to create 'universal' React apps - React apps that do both client and server side rendering.
-
-With Next.js, React pages are automatically rendered on both client and server side, without the hassle of setting up dependancies like webpack or babel and with automatic routing and without the constraints of projects like Create React App.
-
-This is a starter project that provides an example of how to use Next.js with Express, SASS/SCSS, Bootstrap, Reactstrap (Boostrap 4 for React), the Ionicons icon set, examples of how to include data from remote REST APIs and incorporate an authentication system that supports both oAuth and Email using Passport (a popular authentication framework for Node.js).
-
-This project exists to make it easier to get started a creating production app in React. You are invited to use it as a reference or to copy it and use it as a base for your own projects. Contributions to improve this project are welcome.
+### Backend [Link](https://github.com/UNKLD/SeoBlogBackend)
 
 ## Running locally in development mode
 
@@ -38,4 +30,3 @@ Note: If you are already running a webserver on port 80 (e.g. Macs usually have 
 ### Database hosting
 
 If you need an instance of MongoDB in the cloud https://mlab.com/ have free and inexpensive options.
-

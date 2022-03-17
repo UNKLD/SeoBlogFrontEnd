@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 
 const index = () => {
   return (
-    <Layout>
+    <Layout className="index">
       <article>
         <div className="container">
           <div className="row">
