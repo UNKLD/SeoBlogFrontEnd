@@ -1,8 +1,18 @@
-## Seo Freindly Multi user blog app
+## Seo freindly multi user blog app
 
 This is the front-end part of a Multi-user blog website made with Next.js and Bootstrap.
 
 ### Backend [Link](https://github.com/UNKLD/SeoBlogBackend)
+
+
+![seo-blog-front-end vercel app](https://user-images.githubusercontent.com/70531709/159153580-bd67a20f-9db8-4911-8635-76a48daecef9.jpeg)  ![seo-blog-front-end vercel app (2)](https://user-images.githubusercontent.com/70531709/159153652-f49aa78a-3a34-401c-9475-693d71ee162b.jpeg)
+
+
+
+
+
+
+# Getting Started
 
 ## Running locally in development mode
 
