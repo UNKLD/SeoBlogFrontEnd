@@ -1,4 +1,4 @@
-## Seo freindly multi user blog app [Live Demo] (https://seo-blog-front-end.vercel.app/)
+## Seo freindly multi user blog app [Live Demo](https://seo-blog-front-end.vercel.app/)
 
 This is the front-end part of a Multi-user blog website made with Next.js and Bootstrap.
 
