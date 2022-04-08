@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { APP_NAME } from "../config";
 
 class MyDocument extends Document {
   render() {
@@ -10,6 +11,7 @@ class MyDocument extends Document {
           <link rel="stylesheet" href="/bootstrap.min.css" />
           <link rel="stylesheet" href="/styles.css" />
           <link rel="stylesheet" href="/nprogress.css" />
+          <title>{APP_NAME}</title>
         </Head>
         <body>
           <Main />
