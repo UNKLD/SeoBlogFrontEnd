@@ -1,5 +1,5 @@
-import Layout from '../components/Layout';
-import SignupComponent from '../components/auth/SignupComponent';
+import Layout from "../components/Layout";
+import SignupComponent from "../components/auth/SignupComponent";
 
 function signup() {
   return (
